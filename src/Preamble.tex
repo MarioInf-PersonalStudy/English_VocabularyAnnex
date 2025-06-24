@@ -1,0 +1,36 @@
+% Codificación
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english,spanish]{babel}
+\usepackage{lmodern}
+
+% Márgenes y tamaño
+\usepackage[a4paper,margin=2.5cm]{geometry}
+
+% Cabecera y pie de página
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % Limpia los encabezados/pies
+
+% Numeración en pie de página
+\fancyfoot[C]{\thepage}
+
+% Cabecera
+\fancyhead[LE]{\leftmark}         % Sección en páginas pares
+\fancyhead[RO]{Vocabulary Annex}  % Título en impares
+
+% Para el control de colores
+\usepackage{xcolor}
+
+% Comandos personalizados
+\newcommand{\esp}[1]{\textcolor{black}{#1}}
+\newcommand{\eng}[1]{\textcolor{green!50!black}{#1}}
+
+% Separación de secciones
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\Large\bfseries}
+  {\thesection}{1em}{}
+
+% Numeración continua
+\setcounter{page}{1}
