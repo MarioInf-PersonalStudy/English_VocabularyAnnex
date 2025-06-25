@@ -22,5 +22,15 @@
   "latex-workshop.latex.rootFile.useSubFile": false,
   "latex-workshop.latex.rootFile.doNotPrompt": true,
   "latex-workshop.latex.outDir": "../build",
-  "latex-workshop.view.pdf.viewer": "tab"
+  
+  //Configuración del visor
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.synctex.synctexjs.enabled": true,
+  "latex-workshop.forwardSearch.afterBuild.enabled": true,
+  "latex-workshop.synctex.afterBuild.enabled": true,
+  "latex-workshop.synctex.editor.command": "code",
+  "latex-workshop.synctex.editor.args": [
+    "-g",
+    "%file:%line"
+  ]
 }

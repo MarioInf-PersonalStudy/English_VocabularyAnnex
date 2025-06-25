@@ -2,11 +2,12 @@ PROJECT = Main
 SRC_DIR = src
 BUILD_DIR = build
 
+.PHONY: all clean
 
 all:
 	@mkdir -p $(BUILD_DIR)
-	@cp -R $(SRC_DIR)/* $(BUILD_DIR) 2>/dev/null || true
-	@cd $(BUILD_DIR) && latexmk -pdf $(PROJECT).tex  2>/dev/null || true
+	@cd $(SRC_DIR) && latexmk -pdf -synctex=1 -interaction=nonstopmode \
+		-output-directory=../$(BUILD_DIR) $(PROJECT).tex
 
 clean:
 	@rm -rf $(BUILD_DIR)/*

@@ -1,0 +1,14 @@
+\newcommand{\PrintTableConcepts}[1]{
+
+  \begin{table}[H]
+    \centering
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{|p{0.45\linewidth}|p{0.45\linewidth}|}
+      \hline
+      \textbf{English} & \textbf{Español} \\
+      \hline
+      \input{#1} \\ \hline
+    \end{tabular}
+  \end{table}
+
+  }
