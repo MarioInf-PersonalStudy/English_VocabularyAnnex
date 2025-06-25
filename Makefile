@@ -2,8 +2,12 @@ PROJECT = Main
 SRC_DIR = src
 BUILD_DIR = build
 
+
 all:
-	latexmk -pdf -output-directory=$(BUILD_DIR) $(SRC_DIR)/$(PROJECT).tex
+	@mkdir -p $(BUILD_DIR)
+	@cp -R $(SRC_DIR)/* $(BUILD_DIR) 2>/dev/null || true
+	@cd $(BUILD_DIR) && latexmk -pdf $(PROJECT).tex  2>/dev/null || true
 
 clean:
-	latexmk -C -output-directory=$(BUILD_DIR)
+	@rm -rf $(BUILD_DIR)/*
+	@rm -rf $(BUILD_DIR)/.??*

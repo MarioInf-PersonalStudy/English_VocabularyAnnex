@@ -1,0 +1,26 @@
+{
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk ➝ build/",
+      "tools": ["latexmk (build dir)"]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk (build dir)",
+      "command": "latexmk",
+      "args": [
+        "-pdf",
+        "-interaction=nonstopmode",
+        "-synctex=1",
+        "-output-directory=build",
+        "%DOC%"
+      ]
+    }
+  ],
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.latex.rootFile.useSubFile": false,
+  "latex-workshop.latex.rootFile.doNotPrompt": true,
+  "latex-workshop.latex.outDir": "build",
+  "latex-workshop.view.pdf.viewer": "tab"
+}

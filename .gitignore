@@ -1,0 +1,50 @@
+# Archivos auxiliares de LaTeX
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+*.idx
+*.ilg
+*.ind
+*.synctex.gz
+*.fdb_latexmk
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
+
+# Archivos generados por latexmk
+*.fls
+*.fdb_latexmk
+
+# Archivos temporales
+*~
+
+# Archivos de backup
+*.bak
+*.backup
+*.old
+
+# Archivos PDF (si prefieres no guardar salidas)
+*.pdf
+
+# Carpeta de salida (en tu caso build)
+build/
+
+# Otros archivos temporales comunes
+*.tmp
+*.temp
+*.out.ps
+
+# Mac OS
+.DS_Store
+
+# Windows
+Thumbs.db
