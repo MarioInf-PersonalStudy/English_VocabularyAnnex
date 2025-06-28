@@ -3,7 +3,7 @@
 % Redefine la macro que usaremos para introducir vocabulario.
 % Esta definición NO imprime nada directamente cuando se llama desde data_food
 \newcommand{\newVocabularyConcept}[3]{%
-  \VocabularyEntry{#1}{#2}{#3}%
+  \VocabularyEntry{#1}{#2}{#3}
 }
 
 % Aquí definimos cómo debe imprimirse cada fila
@@ -15,14 +15,14 @@
 % Esta macro imprime la tabla y carga los datos definidos
 \newcommand{\PrintTableConcepts}[2]{%
   \begingroup
-  \renewcommand{\arraystretch}{1.3}
+  \renewcommand{\arraystretch}{1.2}
   \begin{center}
     
     \begin{longtable}{|p{0.42\textwidth}|c|p{0.42\textwidth}|}
         \hline
-        \multicolumn{3}{|c|}{\textbf{#2}} \\
+        \rowcolor{Color_TitleTableBackground}\multicolumn{3}{|c|}{\LARGE\texttt{\textbf{#2}}} \\
         \hline
-        \textbf{English} & \textbf{Type} & \textbf{Spanish} \\
+        \rowcolor{Color_TitleTableBackground}\textbf{English} & \textbf{Type} & \textbf{Spanish} \\
         \hline
         \endfirsthead
         \input{#1}
