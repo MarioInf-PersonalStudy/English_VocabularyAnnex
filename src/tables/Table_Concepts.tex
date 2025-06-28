@@ -1,22 +1,26 @@
 % tables/table_concepts.tex
 
-% Redefine la macro que usaremos para introducir vocabulario.
-% Esta definición NO imprime nada directamente cuando se llama desde data_food
-\newcommand{\newVocabularyConcept}[3]{%
-  \VocabularyEntry{#1}{#2}{#3}
-}
-
 % Aquí definimos cómo debe imprimirse cada fila
-\newcommand{\VocabularyEntry}[3]{%
-  \eng{#1} & \textit{#2} & \esp{#3} \\
-  \hline
+\newcommand{\newVocabularyConcept}[5]{%
+    \eng{#1}
+    \ifthenelse{\equal{#2}{}}
+        {}
+        {(\emph{US:\usa{#2}})}
+    &
+    \textit{#3} & 
+    \esp{#4}
+    \ifthenelse{\equal{#5}{}}
+        {}
+        {(\emph{Ctx:\esp{#5}})}
+    \\ 
+    \hline
 }
 
 % Esta macro imprime la tabla y carga los datos definidos
 \newcommand{\PrintTableConcepts}[2]{%
-  \begingroup
-  \renewcommand{\arraystretch}{1.2}
-  \begin{center}
+    \begingroup
+    \renewcommand{\arraystretch}{1.2}
+    \centering
     
     \begin{longtable}{|p{0.42\textwidth}|c|p{0.42\textwidth}|}
         \hline
@@ -25,9 +29,18 @@
         \rowcolor{Color_TitleTableBackground}\textbf{English} & \textbf{Type} & \textbf{Spanish} \\
         \hline
         \endfirsthead
+
+        \hline
+        \endhead
+        
+        \hline
+        \endfoot
+
+        \hline
+        \endlastfoot
+
         \input{#1}
     \end{longtable}
 
-  \end{center}
   \endgroup
 }
