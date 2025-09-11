@@ -19,10 +19,11 @@
 % Esta macro imprime la tabla y carga los datos definidos
 \newcommand{\PrintTableConcepts}[2]{%
     \begingroup
-    \renewcommand{\arraystretch}{1.2}
+    \renewcommand{\arraystretch}{1.1}
+    \setlength{\tabcolsep}{3pt}
     \centering
     
-    \begin{longtable}{|p{0.42\textwidth}|c|p{0.42\textwidth}|}
+    \begin{longtable}{|p{0.45\textwidth}|c|p{0.45\textwidth}|}
         \hline
         \rowcolor{Color_TitleTableBackground}\multicolumn{3}{|c|}{\LARGE\texttt{\textbf{#2}}} \\
         \hline

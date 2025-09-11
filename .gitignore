@@ -33,7 +33,7 @@
 *.old
 
 # Archivos PDF (si prefieres no guardar salidas)
-*.pdf
+#*.pdf
 
 # Carpeta de salida (en tu caso build)
 build/
