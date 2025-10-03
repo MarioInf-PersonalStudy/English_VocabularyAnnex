@@ -1,0 +1,57 @@
+% tables/table_irregulars.tex
+
+% Aquí definimos cómo debe imprimirse cada fila
+\newcommand{\newIrregularVerb}[8]{%
+    \eng{#1}
+    \ifthenelse{\equal{#2}{}}
+        {}
+        {(\emph{US:\usa{#2}})}
+    &
+    \eng{#3}
+    \ifthenelse{\equal{#4}{}}
+        {}
+        {(\emph{US:\usa{#4}})}
+    &
+    \eng{#5}
+    \ifthenelse{\equal{#6}{}}
+        {}
+        {(\emph{US:\usa{#6}})}
+    &
+    \esp{#7}
+    \ifthenelse{\equal{#8}{}}
+        {}
+        {(\emph{Ctx:\esp{#8}})}
+    \\
+    \hline
+}
+
+
+% Macro para imprimir la tabla completa
+\newcommand{\PrintIrregularVerbs}[2]{%
+  \begingroup
+  \renewcommand{\arraystretch}{1}
+  \setlength{\tabcolsep}{3pt}
+  \centering
+
+  \begin{longtable}{|p{0.22\textwidth}|p{0.22\textwidth}|p{0.22\textwidth}|p{0.25\textwidth}|}
+    \hline
+    \rowcolor{Color_TitleTableBackground}\multicolumn{4}{|c|}{\LARGE\texttt{\textbf{#2}}} \\
+    \hline
+    \rowcolor{Color_TitleTableBackground}\textbf{Present} & \textbf{Past Simple} & \textbf{Past Participle} & \textbf{Spanish} \\
+    \hline
+    \endfirsthead
+
+    \hline
+    \endhead
+
+    \hline
+    \endfoot
+
+    \hline
+    \endlastfoot
+
+    \input{#1}
+  \end{longtable}
+
+  \endgroup
+}
