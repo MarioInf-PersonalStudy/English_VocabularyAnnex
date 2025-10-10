@@ -1,57 +1,69 @@
 % tables/table_irregulars.tex
 
-% Aquí definimos cómo debe imprimirse cada fila
+\newcounter{verbrowcounter}
+\newcounter{blocks}
+
 \newcommand{\newIrregularVerb}[8]{%
-    \eng{#1}
-    \ifthenelse{\equal{#2}{}}
-        {}
-        {(\emph{US:\usa{#2}})}
-    &
-    \eng{#3}
-    \ifthenelse{\equal{#4}{}}
-        {}
-        {(\emph{US:\usa{#4}})}
-    &
-    \eng{#5}
-    \ifthenelse{\equal{#6}{}}
-        {}
-        {(\emph{US:\usa{#6}})}
-    &
-    \esp{#7}
-    \ifthenelse{\equal{#8}{}}
-        {}
-        {(\emph{Ctx:\esp{#8}})}
-    \\
-    \hline
+  \stepcounter{verbrowcounter}%
+  \eng{#1}%
+  \ifthenelse{\equal{#2}{}}{}{(\emph{US:\usa{#2}})}%
+  &
+  \eng{#3}%
+  \ifthenelse{\equal{#4}{}}{}{(\emph{US:\usa{#4}})}%
+  &
+  \eng{#5}%
+  \ifthenelse{\equal{#6}{}}{}{(\emph{US:\usa{#6}})}%
+  &
+  \esp{#7}%
+  \ifthenelse{\equal{#8}{}}{}{(\emph{Ctx:\esp{#8}})}%
+  &
+  {\scriptsize \the\numexpr (\theblocks * 20) + \theverbrowcounter}
+  \\%
+  
+  \ifnum\value{verbrowcounter}=20
+    \noalign{\vskip 1pt \hrule height 0.8pt \vskip 1pt \hrule height 0.8pt \vskip 1pt}%
+    \setcounter{verbrowcounter}{0}%
+    \stepcounter{blocks}
+  \else
+    \cline{1-4}
+  \fi
 }
 
-
-% Macro para imprimir la tabla completa
 \newcommand{\PrintIrregularVerbs}[2]{%
   \begingroup
-  \renewcommand{\arraystretch}{1}
-  \setlength{\tabcolsep}{3pt}
-  \centering
+    \setcounter{verbrowcounter}{0}%
+    \setcounter{blocks}{0}%
+    \renewcommand{\arraystretch}{1}%
+    \setlength{\tabcolsep}{3pt}%
+    \centering
+    \small
 
-  \begin{longtable}{|p{0.22\textwidth}|p{0.22\textwidth}|p{0.22\textwidth}|p{0.25\textwidth}|}
-    \hline
-    \rowcolor{Color_TitleTableBackground}\multicolumn{4}{|c|}{\LARGE\texttt{\textbf{#2}}} \\
-    \hline
-    \rowcolor{Color_TitleTableBackground}\textbf{Present} & \textbf{Past Simple} & \textbf{Past Participle} & \textbf{Spanish} \\
-    \hline
-    \endfirsthead
+    \begin{longtable}{|p{0.20\textwidth}|p{0.20\textwidth}|p{0.20\textwidth}|p{0.35\textwidth}|p{0.1\textwidth}}
+      \cline{1-4}
+      \rowcolor{Color_TitleTableBackground}\multicolumn{4}{|c|}{\LARGE\texttt{\textbf{#2}}} \\
+      \cline{1-4}
+      
+      \cellcolor{Color_TitleTableBackground}\textbf{Present} & 
+      \cellcolor{Color_TitleTableBackground}\textbf{Past Simple} & 
+      \cellcolor{Color_TitleTableBackground}\textbf{Past Participle} & 
+      \cellcolor{Color_TitleTableBackground}\textbf{Spanish} 
+      & \\
+      
+      \cline{1-4}
+      \endfirsthead
 
-    \hline
-    \endhead
+      \cline{1-4}
+      \endhead
 
-    \hline
-    \endfoot
 
-    \hline
-    \endlastfoot
+      
+      \cline{1-4}
+      \endfoot
 
-    \input{#1}
-  \end{longtable}
+      \cline{1-4}
+      \endlastfoot
 
+      \input{#1}
+    \end{longtable}
   \endgroup
 }
