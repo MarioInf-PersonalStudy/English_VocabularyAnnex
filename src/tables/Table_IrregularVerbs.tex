@@ -6,16 +6,16 @@
 \newcommand{\newIrregularVerb}[8]{%
   \stepcounter{verbrowcounter}%
   \eng{#1}%
-  \ifthenelse{\equal{#2}{}}{}{(\emph{US:\usa{#2}})}%
+  \ifthenelse{\equal{#2}{}}{}{ (\emph{US:\usa{#2}})}%
   &
   \eng{#3}%
-  \ifthenelse{\equal{#4}{}}{}{(\emph{US:\usa{#4}})}%
+  \ifthenelse{\equal{#4}{}}{}{ (\emph{US:\usa{#4}})}%
   &
   \eng{#5}%
-  \ifthenelse{\equal{#6}{}}{}{(\emph{US:\usa{#6}})}%
+  \ifthenelse{\equal{#6}{}}{}{ (\emph{US:\usa{#6}})}%
   &
   \esp{#7}%
-  \ifthenelse{\equal{#8}{}}{}{(\emph{Ctx:\esp{#8}})}%
+  \ifthenelse{\equal{#8}{}}{}{ (\emph{Ctx:\esp{#8}})}%
   &
   {\scriptsize \the\numexpr (\theblocks * 20) + \theverbrowcounter}
   \\%
@@ -23,9 +23,9 @@
   \ifnum\value{verbrowcounter}=20
     \noalign{\vskip 1pt \hrule height 0.8pt \vskip 1pt \hrule height 0.8pt \vskip 1pt}%
     \setcounter{verbrowcounter}{0}%
-    \stepcounter{blocks}
+    \stepcounter{blocks}%
   \else
-    \cline{1-4}
+    \cline{1-4}%
   \fi
 }
 
@@ -42,13 +42,12 @@
       \cline{1-4}
       \rowcolor{Color_TitleTableBackground}\multicolumn{4}{|c|}{\LARGE\texttt{\textbf{#2}}} \\
       \cline{1-4}
-      
       \cellcolor{Color_TitleTableBackground}\textbf{Present} & 
       \cellcolor{Color_TitleTableBackground}\textbf{Past Simple} & 
       \cellcolor{Color_TitleTableBackground}\textbf{Past Participle} & 
       \cellcolor{Color_TitleTableBackground}\textbf{Spanish} 
       & \\
-      
+
       \cline{1-4}
       \endfirsthead
 
