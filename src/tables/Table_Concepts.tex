@@ -1,47 +1,61 @@
 % tables/table_concepts.tex
 
-% Aquí definimos cómo debe imprimirse cada fila
+\newcounter{rowCounterConcepts}
+\newcounter{chunkCounterConcepts}
+
 \newcommand{\newVocabularyConcept}[5]{%
-    \eng{#1}
-    \ifthenelse{\equal{#2}{}}
-        {}
-        {(\emph{US:\usa{#2}})}
-    &
+  \stepcounter{rowCounterConcepts}%
+  \eng{#1}
+  \ifthenelse{\equal{#2}{}}
+      {}
+      {(\emph{US:\usa{#2}})}
+  &
     \textit{#3} & 
     \esp{#4}
     \ifthenelse{\equal{#5}{}}
         {}
         {(\emph{Ctx:\esp{#5}})}
-    \\ 
-    \hline
+    &
+    {\scriptsize \the\numexpr (\thechunkCounterConcepts * 20) + \therowCounterConcepts}
+    \\%
+
+    \ifnum\value{rowCounterConcepts}=20
+        \noalign{\vskip 1pt \hrule height 0.8pt \vskip 1pt \hrule height 0.8pt \vskip 1pt}%
+        \setcounter{rowCounterConcepts}{0}%
+        \stepcounter{chunkCounterConcepts}%
+    \else
+        \cline{1-3}%
+    \fi
 }
 
 % Esta macro imprime la tabla y carga los datos definidos
 \newcommand{\PrintTableConcepts}[2]{%
     \begingroup
-    \renewcommand{\arraystretch}{1}
-    \setlength{\tabcolsep}{3pt}
+    \setcounter{rowCounterConcepts}{0}%
+    \setcounter{chunkCounterConcepts}{0}%
+    \renewcommand{\arraystretch}{1}%
+    \setlength{\tabcolsep}{3pt}%
     \centering
-    
-    \begin{longtable}{|p{0.45\textwidth}|c|p{0.45\textwidth}|}
-        \hline
-        \rowcolor{Color_TitleTableBackground}\multicolumn{3}{|c|}{\LARGE\texttt{\textbf{#2}}} \\
-        \hline
-        \rowcolor{Color_TitleTableBackground}\textbf{English} & \textbf{Type} & \textbf{Spanish} \\
-        \hline
-        \endfirsthead
-
-        \hline
-        \endhead
+    \small
         
-        \hline
-        \endfoot
+        \begin{longtable}{|p{0.45\textwidth}|c|p{0.45\textwidth}|p{0.1\textwidth}}
+            \cline{1-3}%
+            \rowcolor{Color_TitleTableBackground}\multicolumn{3}{|c|}{\LARGE\texttt{\textbf{#2}}} \\
+            \cline{1-3}%
+            \rowcolor{Color_TitleTableBackground}\textbf{English} & \textbf{Type} & \textbf{Spanish} \\
+            \cline{1-3}%
+            \endfirsthead
 
-        \hline
-        \endlastfoot
+            \cline{1-3}%
+            \endhead
+            
+            \cline{1-3}%
+            \endfoot
 
-        \input{#1}
-    \end{longtable}
+            \cline{1-3}%
+            \endlastfoot
 
+            \input{#1}
+        \end{longtable}
   \endgroup
 }
