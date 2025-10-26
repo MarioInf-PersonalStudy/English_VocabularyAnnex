@@ -38,23 +38,26 @@
     \centering
     \small
 
-    \begin{longtable}{|p{0.20\textwidth}|p{0.20\textwidth}|p{0.20\textwidth}|p{0.35\textwidth}|p{0.1\textwidth}}
-      \cline{1-4}
-      \rowcolor{Color_TitleTableBackground}\multicolumn{4}{|c|}{\LARGE\texttt{\textbf{#2}}} \\
-      \cline{1-4}
-      \cellcolor{Color_TitleTableBackground}\textbf{Present} & 
-      \cellcolor{Color_TitleTableBackground}\textbf{Past Simple} & 
-      \cellcolor{Color_TitleTableBackground}\textbf{Past Participle} & 
-      \cellcolor{Color_TitleTableBackground}\textbf{Spanish} 
-      & \\
+    \begin{longtable}{|p{0.21\textwidth}|p{0.21\textwidth}|p{0.21\textwidth}|p{0.32\textwidth}|p{0.1\textwidth}}
+      \noalign{\hrule height 1.2pt}
+      
+      \rowcolor{Color_TitleTableBackground}\multicolumn{4}{|c|}{
+        \raisebox{0pt}[20pt][10pt]{\LARGE\texttt{\textbf{#2}}}
+      } \\
+      \noalign{\hrule height 1.2pt}
+
+      \cellcolor{Color_TitleTableBackground}\raisebox{0pt}[12pt][6pt]{\large\textbf{Present}} & 
+      \cellcolor{Color_TitleTableBackground}\raisebox{0pt}[12pt][6pt]{\large\textbf{Past Simple}} & 
+      \cellcolor{Color_TitleTableBackground}\raisebox{0pt}[12pt][6pt]{\large\textbf{Past Participle}} & 
+      \cellcolor{Color_TitleTableBackground}\raisebox{0pt}[12pt][6pt]{\large\textbf{Spanish}} 
+      & 
+      \\
 
       \cline{1-4}
       \endfirsthead
 
       \cline{1-4}
       \endhead
-
-
       
       \cline{1-4}
       \endfoot
