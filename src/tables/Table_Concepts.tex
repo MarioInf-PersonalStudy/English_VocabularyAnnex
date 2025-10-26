@@ -39,10 +39,17 @@
     \small
         
         \begin{longtable}{|p{0.45\textwidth}|c|p{0.45\textwidth}|p{0.1\textwidth}}
-            \cline{1-3}%
-            \rowcolor{Color_TitleTableBackground}\multicolumn{3}{|c|}{\LARGE\texttt{\textbf{#2}}} \\
-            \cline{1-3}%
-            \rowcolor{Color_TitleTableBackground}\textbf{English} & \textbf{Type} & \textbf{Spanish} \\
+            \noalign{\hrule height 1.2pt}
+            \rowcolor{Color_TitleTableBackground}\multicolumn{3}{|c|}{
+              \raisebox{0pt}[20pt][10pt]{\LARGE\texttt{\textbf{#2}}}
+            } \\
+            \noalign{\hrule height 1.2pt}
+
+            \rowcolor{Color_TitleTableBackground}\raisebox{0pt}[12pt][6pt]{\large\textbf{English}} &
+            \raisebox{0pt}[12pt][6pt]{\large\textbf{Type}} &
+            \raisebox{0pt}[12pt][6pt]{\large\textbf{Spanish}} 
+            \\
+
             \cline{1-3}%
             \endfirsthead
 
