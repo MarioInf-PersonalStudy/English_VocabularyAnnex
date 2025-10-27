@@ -5,17 +5,17 @@
 
 \newcommand{\newIrregularVerb}[8]{%
   \stepcounter{verbrowcounter}%
-  \eng{#1}%
-  \ifthenelse{\equal{#2}{}}{}{ (\emph{US:\usa{#2}})}%
+  \textbf{\eng{#1}}%
+  \ifthenelse{\equal{#2}{}}{}{ \textbf{(\emph{US:\usa{#2}})}}%
   &
-  \eng{#3}%
-  \ifthenelse{\equal{#4}{}}{}{ (\emph{US:\usa{#4}})}%
+  \textbf{\eng{#3}}%
+  \ifthenelse{\equal{#4}{}}{}{ \textbf{(\emph{US:\usa{#4}})}}%
   &
-  \eng{#5}%
-  \ifthenelse{\equal{#6}{}}{}{ (\emph{US:\usa{#6}})}%
+  \textbf{\eng{#5}}%
+  \ifthenelse{\equal{#6}{}}{}{ \textbf{(\emph{US:\usa{#6}})}}%
   &
-  \esp{#7}%
-  \ifthenelse{\equal{#8}{}}{}{ (\emph{Ctx:\esp{#8}})}%
+  \textbf{\esp{#7}}%
+  \ifthenelse{\equal{#8}{}}{}{ \textbf{(\emph{Ctx:\esp{#8}})}}
   &
   {\scriptsize \the\numexpr (\theblocks * 20) + \theverbrowcounter}
   \\%
@@ -38,7 +38,7 @@
     \centering
     \small
 
-    \begin{longtable}{|p{0.21\textwidth}|p{0.21\textwidth}|p{0.21\textwidth}|p{0.32\textwidth}|p{0.1\textwidth}}
+    \begin{longtable}{|p{0.15\textwidth}|p{0.24\textwidth}|p{0.24\textwidth}|p{0.32\textwidth}|p{0.1\textwidth}}
       \noalign{\hrule height 1.2pt}
       
       \rowcolor{Color_TitleTableBackground}\multicolumn{4}{|c|}{
